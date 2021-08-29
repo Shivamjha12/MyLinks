@@ -17,10 +17,6 @@ Made with html,css,javascript and bootstrap.
 - Handle and mark many online important works to show
 - Use as your instagram bio page with unique url
 
-Markdown is a lightweight markup language based on the formatting conventions
-that people naturally use in email.
-As [John Gruber] writes on the [Markdown site][df1]
-
 # Licence
 ### MIT
 

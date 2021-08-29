@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} preview {% endblock title %}
+{% block preview_navbar %} active {% endblock %}
+{% block body %}
+<html>
+<head>
+<title>Title of the document</title>
+</head>
+<body>
+<span>
+<h1 class="text-center"> Deleting {{customer.title}} from your Bio Page</h1>
+<div class="d-flex justify-content-center mt-5">
+    <div class="card p-3 cookie"><span>We use third party cookies to personalize content, ads and analyze site traffic.<br></span><a href="#">Learn more<i class="fa fa-angle-right ml-2"></i></a>
+        <div class="mt-4 text-right">
+        <div class="content">
+        <form method="post">
+        {% csrf_token %}
+        <a href="/CreateBio" /><button class="btn btn-light btn-sm" type="button">Cancel</button>
+        <button class="btn btn-light btn-sm" type="submit">Delete</button>
+        </form>
+        </div>
+        
+        </div>
+    </div>
+</div>
+</span>
+<style>
+body {
+    background: #fff
+}
+.text-center{
+    margin-top: 30px;
+
+}
+.row1{
+    margin-left: 210px;
+    flex-flow: nowrap;
+    flex-flow: wrap;
+    flex-flow: wrap-reverse;
+}
+
+.card {
+    margin-top:0%;
+    width: 400px;
+    flex-direction: column;
+    min-width: 0;
+    color: #fff;
+    word-wrap: break-word;
+    background-color: #de3a3a;
+    background-clip: border-box;
+    border: 1px solid #000;
+    border-radius: 6px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgb(249, 249, 250);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
+    box-shadow: 0px 0px 5px 0px rgb(161, 163, 164)
+}
+
+.cookie a {
+    text-decoration: none;
+    color: #000;
+    margin-top: 8px;
+    font-size: 12px
+}
+
+.cookie a {
+    text-decoration: none;
+    color: #fff;
+    margin-top: 8px
+}
+
+.decline {
+    cursor: pointer
+}
+</style>
+
+
+
+
+
+</body>
+</html>
+{% endblock body %}
+

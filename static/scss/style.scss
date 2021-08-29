@@ -1,0 +1,322 @@
+@import 'bootstrap/bootstrap';
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+
+$font-primary: 'Poppins',Arial, sans-serif;
+
+
+@mixin transition($transition) {
+  -moz-transition: all $transition ease;
+  -o-transition: all $transition ease;
+  -webkit-transition: all $transition ease;
+  -ms-transition: all $transition ease;
+  transition: all $transition ease;
+}
+
+$primary: #6c5ce7;
+$secondary: #1ee3cf;
+$tertiary: #ff00c8;
+$quarternary: #a1dd70;
+body{
+	font-family: $font-primary;
+	font-size: 15px;
+	line-height: 1.8;
+	font-weight: normal;
+	background: #f8f8f8;
+}
+a {
+	transition: .3s all ease;
+	color: $primary;
+	&:hover, &:focus {
+		text-decoration: none !important;
+		outline: none !important;
+		box-shadow: none;
+	}
+}
+button {
+	transition: .3s all ease;
+	&:hover, &:focus {
+		text-decoration: none !important;
+		outline: none !important;
+		box-shadow: none !important;
+	}
+}
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+	line-height: 1.5;
+	font-weight: 400;
+	font-family: $font-primary;
+}
+
+
+.ftco-section{
+	padding: 7em 0;
+}
+
+.ftco-no-pt{
+	padding-top: 0;
+}
+.ftco-no-pb{
+	padding-bottom: 0;
+}
+//HEADING SECTION
+.heading-section{
+	font-size: 32px;
+
+	small{
+		font-size: 16px;
+		
+	}
+}
+
+//BUTTONS
+.btn {
+	padding: 0;
+	cursor: pointer;
+	border-width: 1px;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 500;
+	-webkit-box-shadow: 0px 7px 15px -13px rgba(0,0,0,0.17);
+	-moz-box-shadow: 0px 7px 15px -13px rgba(0,0,0,0.17);
+	box-shadow: 0px 7px 15px -13px rgba(0,0,0,0.17);
+	border: none;
+	overflow: hidden;
+	position: relative;
+	@include transition(.3s);
+	&:hover, &:active, &:focus {
+		outline: none !important;
+	}
+	small{
+		background: lighten($black,90%);
+		padding: 2px 8px;
+		color: rgba(0,0,0,.3);
+	}
+	.icon{
+		width: 60px;
+		bottom: 0;
+		background: rgba(0,0,0,.1);
+		i{
+			font-size: 30px;
+		}
+		&.icon-left{
+			left: 0;
+		}
+		&.icon-right{
+			right: 0;
+		}
+		&.icon-primary{
+			background: $primary;
+			i{
+				color: $white;
+			}
+		}
+		&.icon-secondary{
+			background: $secondary;
+			i{
+				color: $white;
+			}
+		}
+		&.icon-tertiary{
+			background: $tertiary;
+			i{
+				color: $white;
+			}
+		}
+		&.icon-quarternary{
+			background: $quarternary;
+			i{
+				color: $white;
+			}
+		}
+	}
+	.text{
+		width: calc(100% - 60px);
+		h4{
+			font-size: 22px;
+			margin-bottom: 0;
+		}
+	}
+	&.btn-primary {
+		background: $primary;
+		border-color: $primary;
+		color: $white;
+		.text{
+			span{
+				color: rgba(255,255,255,.8);
+			}
+		}
+		&:hover,&:focus{
+			border-color: darken($primary,10%) !important;
+			background: darken($primary,10%) !important;
+		}
+		&.btn-link{
+			background: transparent;
+			color: $white;
+			border:none;
+			box-shadow: none;
+		}
+	}
+	&.btn-outline-primary{
+		color: $primary;
+		border-color: $primary;
+		&:hover, &:focus{
+			color: $white;
+			background: $primary;
+		}
+	}
+	&.btn-secondary{
+		color: $white;
+		border-color: $secondary;
+		background: $secondary;
+		.text{
+			span{
+				color: rgba(255,255,255,.8);
+			}
+		}
+		&:hover,&:focus{
+			border-color: darken($secondary,10%) !important;
+			background: darken($secondary,10%) !important;
+		}
+		&.btn-link{
+			color: $secondary;
+			background: transparent;
+		}
+	}
+	&.btn-outline-secondary{
+		color: $secondary;
+		border-color: $secondary;
+		&:hover, &:focus{
+			color: $white;
+			background: $secondary;
+		}
+	}
+	&.btn-tertiary{
+		color: $white;
+		background: $tertiary;
+		border-color: $tertiary;
+		.text{
+			span{
+				color: rgba(255,255,255,.8);
+			}
+		}
+		&:hover,&:focus{
+			border-color: darken($tertiary,10%) !important;
+			background: darken($tertiary,10%) !important;
+		}
+		&.btn-link{
+			color: $tertiary;
+			background: transparent;
+		}
+	}
+	&.btn-outline-tertiary{
+		color: $tertiary;
+		border-color: $tertiary;
+		&:hover, &:focus{
+			color: $white;
+			background: $tertiary;
+		}
+	}
+	&.btn-quarternary{
+		color: $white;
+		border-color: $quarternary;
+		background: $quarternary;
+		.text{
+			span{
+				color: rgba(255,255,255,.8);
+			}
+		}
+		&:hover,&:focus{
+			border-color: darken($quarternary,10%) !important;
+			background: darken($quarternary,10%) !important;
+		}
+		&.btn-link{
+			color: $quarternary;
+			background: transparent;
+		}
+	}
+	&.btn-outline-quarternary{
+		color: $quarternary;
+		border-color: $quarternary;
+		&:hover, &:focus{
+			color: $white;
+			background: $quarternary;
+		}
+	}
+	&.btn-white {
+		background: $white;
+		border-color: $white;
+		color: $black;
+		.text{
+			span{
+				color: rgba(0,0,0,.3);
+			}
+		}
+	}
+	&.btn-round{
+		@include border-radius(40px);
+	}
+	&.btn-link{
+		border:none;
+		box-shadow: none;
+		color: $black;
+	}
+	//SIZE
+	&.btn-sm{
+		padding: 5px 20px;
+		font-size: 12px;
+	}
+	&.btn-lg{
+		padding: 17px 24px;
+		font-size: 16px;
+	}
+
+
+	//SOCIAL BUTTON
+	&.btn-fb{
+		background: #4f69a2;
+		border-color: #4f69a2;
+		color: $white;
+	}
+	//TWITTER
+	&.btn-twitter{
+		background: #69b6f0;
+		border-color: #69b6f0;
+		color: $white;
+	}
+	//GOOGLEPLUS
+	&.btn-googleplus{
+		background: #de5e50;
+		border-color: #de5e50;
+		color: $white;
+	}
+	//LINKEDIN
+	&.btn-linkedin{
+		background: #2884ba;
+		border-color: #2884ba;
+		color: $white;
+	}
+	//PINTEREST
+	&.btn-pinterest{
+		background: #d03940;
+		border-color: #d03940;
+		color: $white;
+	}
+	//DRIBBLE
+	&.btn-dribbble{
+		background: #ea6294;
+		border-color: #ea6294;
+		color: $white;
+	}
+
+	&.btn-outline{
+		border: 1px solid rgba(0,0,0,.1);
+		color: $black;
+		background: transparent;
+		&:hover{
+			color: rgba(0,0,0,.5);
+			border-color: rgba(0,0,0,.05);
+		}
+	}
+}
+

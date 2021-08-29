@@ -1,0 +1,9 @@
+.banner{
+    position: relative;
+    background-image: url(/newsite/static/home.jpg);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    
+    
+}

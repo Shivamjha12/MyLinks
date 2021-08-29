@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Explore | Instaclone</title>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        {% load static %}
+        <link rel="stylesheet" type ="text/css" href="{% static 'css/style1.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    
+    <nav class="navigation">
+    <div class="mainLogo">
+           <span> <a class="nav-link" href="/">
+                  <img 
+                    src="{% static 'img/Main_logo2.png' %}"
+                    width="120" height="30"
+                    alt="logo"
+                    title="logo"
+                    id=logo
+                    class="navigation__logo"
+                />
+            </a>
+            </span>
+            </div>            
+    </nav>
+    </head>
+    <body>
+<div class="content">
+        <div class="profile-header-container">   
+    		<div class="profile-header-img">
+                
+
+                {% if person.image %}
+                    <img class="img-circle" src="{{person.image.url}}" alt="{% static 'img/avatarLogo.jpg' %}"/>
+                {% else %}
+                    <img class="img-circle" src="{% static 'img/avatarLogo.jpg' %}"/>
+                {% endif %}
+                <div class="rank-label-container">
+                    <span class="label label-default rank-label">{{u.first_name}} {{u.last_name}}</span>
+                </div>
+                </div>
+            </div>
+</div>
+<span>
+<div class="details">
+{% for i in bio_data|slice:"0:1"%}
+    <p class="text-secondary mb-1">{{person.story}} <span style="color:red"></span></p>
+{% endfor %}
+</div>
+
+
+</span>
+
+<div class="container">
+{% for i in bio_data %}
+        <main class="explore">
+            <section class="people">
+                <ul class="people__list">
+                    <li class="people__person">
+                        <div class="people__column">
+                            <div class="people__avatar-container">
+                                <img
+                                {% if i.addSocialMediaLink|slice:"0:25" == "https://www.instagram.com" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/instagram.png' %}"
+                                     {% endif %}
+                                {% elif i.addSocialMediaLink|slice:"0:25" == "https://www.facebook.com/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/fb.png' %}"
+                                     {% endif %}
+                                {% elif i.addSocialMediaLink|slice:"0:20" == "https://twitter.com/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/twitter.webp' %}"
+                                     {% endif %}
+                                    
+                                {% elif i.addSocialMediaLink|slice:"0:24" == "https://www.whatsapp.com/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/WhatsApp.png' %}"
+                                     {% endif %}
+                                {% elif i.addSocialMediaLink|slice:"0:25" == "https://www.youtube.com/"%}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/youtube.png' %}"
+                                     {% endif %}
+                                {% elif i.addSocialMediaLink|slice:"0:17" == "https://youtu.be/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/youtube.png' %}"
+                                     {% endif %}
+                                {% elif i.addSocialMediaLink|slice:"0:13" == "https://t.me/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/telegram.png' %}"
+                                     {% endif %}
+                                    
+                                {% elif i.addSocialMediaLink|slice:"0:16" == "https://zoom.us/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/zoom.png' %}"
+                                     {% endif %}
+                                    
+                                {% elif i.addSocialMediaLink|slice:"0:19" == "https://www.amazon." %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/amazon.png' %}"
+                                     {% endif %}
+                                    
+                                {% elif i.addSocialMediaLink|slice:"0:25" == "https://www.flipkart.com/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/flipkart.png' %}"
+                                     {% endif %}
+                                    
+                                {% elif i.addSocialMediaLink|slice:"0:22" == "https://www.wikipedia." %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/wikipedia.png' %}"
+                                     {% endif %}
+                                    
+                                {% elif i.addSocialMediaLink|slice:"0:24" == "https://www.hotstar.com/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/hotstar.png' %}"
+                                     {% endif %}
+                                    
+                                {% elif i.addSocialMediaLink|slice:"0:36" == "https://timesofindia.indiatimes.com/" %}
+                                    {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/toi.png' %}"
+                                     {% endif %}
+                                    
+                                {% elif i.addSocialMediaLink|slice:"0:22" == "https://www.quora.com/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/quora.png' %}"
+                                     {% endif %}
+                                    
+                                {% elif i.addSocialMediaLink|slice:"0:23" == "https://www.reddit.com/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/reddit.png' %}"
+                                     {% endif %}
+                                    
+                                {% elif i.addSocialMediaLink|slice:"0:19" == "https://medium.com/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/reddit.png' %}"
+                                     {% endif %}
+                                    src="{% static 'img/icon/Medium.png' %}"
+                                {% elif i.addSocialMediaLink|slice:"0:25" == "https://www.snapchat.com/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/snapchat.png' %}"
+                                     {% endif %}
+                                    
+                                {% elif i.addSocialMediaLink|slice:"0:25" == "https://www.linkedin.com/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/linkedin.png' %}"
+                                     {% endif %}
+                                {% elif i.addSocialMediaLink|slice:"0:19" == "https://github.com/" %}
+                                     {% if i.link_icon == "Motion_icon" %}
+                                         src="{% static 'img/icon/linkedin1.gif' %}" 
+                                     {% else %}
+                                         src="{% static 'img/icon/github.png' %}"
+                                     {% endif %}
+                                {% else %}
+                                    src="{% static 'img/icon/website.png' %}"
+                                {% endif %}
+                                    class="people__avatar"
+                                />
+                            </div>
+                            <div class="people__info">
+                                <span class="people__username">{{i.title}}
+                                {% if i.link_icon == "Important_icon" %}
+                                  <img src="{% static 'img/icon/important.png' %}" height=14 width=14 />
+                                {% endif %}
+                                </span>
+                                <span class="people__full-name">added on {{i.dateAndTime.date }}</span>
+                              
+                            </div>
+                        </div>
+                        <div class="people__column">
+                            <a href="{{i.addSocialMediaLink}}" target="_blank">Visit</a>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </section>
+        </main>
+        {% endfor %}
+
+</div>
+<span>
+{% comment %} <p>Views: {% get_hit_count for Profile %}</p> {% endcomment %}
+<style>
+
+.a {
+	--p: 0;
+	--q: calc(1 - var(--p));
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	width: $btn-w;
+	background: #fff;
+	color: #000;
+	font: 700 1.125em/ #{$btn-lh} trebuchet ms, sans-serif;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	
+	&:before, &:after {
+		--i: var(--p);
+		--j: calc(1 - var(--i));
+		position: absolute;
+		z-index: -1;
+		top: 0; bottom: 0;
+		left: calc(var(--j)*(100% - #{$btn-d}));
+		width: $btn-d;
+		transform-origin: calc(var(--j)*100%) calc(var(--i)*100%);
+		transform: rotate($btn-a) translate(calc(var(--q)*(1 - 2*var(--i))*-100%));
+		box-shadow: 0 0 0 1px currentcolor;
+		background: currentcolor;
+		color: #ef4654;
+		transition: transform .5s ease-in-out;
+		content: ''
+	}
+	
+	&:after { --i: var(--q) }
+	
+	&:hover, &:focus { --p: 1 }
+}
+
+.navigation{
+    background-color:white;
+    height: 45px;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto !important;
+    top:0;
+    border-bottom:1px solid rgba(0,0,0,.0975);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0px 0px;
+    box-sizing: border-box;
+    z-index:2;
+    
+}
+.details{
+    text-align: center;
+    font-size:20px;
+    color:#262626;
+    background:#fff;
+    display:inline;
+    padding:1rem;
+    border-radius:15px;
+    margin:20px auto;
+    
+}
+
+
+/**
+ * Profile image component
+ */
+.profile-header-container{
+    margin-top: 0px;
+    padding-top:0px !important;
+    text-align: center;
+}
+
+.profile-header-img {
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.mainLogo{
+    align: center;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%
+}
+.logo{
+    align: center;
+}
+.navigation__icons{
+    
+}
+.img-circle {
+    width: 120px;
+    height: 120px;
+    border-radius:50%;
+    border: 2px solid #51D2B7;
+}
+
+.profile-header {
+    margin-top: 43px;
+}
+
+/**
+ * Ranking component
+ */
+.rank-label-container {
+    margin-top: -19px;
+    /* z-index: 1000; */
+    text-align: center;
+}
+
+.label.label-default.rank-label {
+    background-color: rgb(81, 210, 183);
+    padding: 5px 10px 5px 10px;
+    border-radius: 27px;
+}
+.main_body {
+    margin-top: 0px;
+}
+footer{
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+body {
+    
+}
+</style>
+
+
+</div>
+<footer class="footer">
+            <nav class="footer__nav">
+                <ul class="footer__list">
+                    <li class="footer__list-item"><a href="#" class="footer__link">about us</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">support</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">blog</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">press</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">api</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">jobs</a></li>
+
+                </ul>
+            </nav>
+            <span class="footer__copyright">© 2021 Insta Bio</span>
+</footer>
+</span>
+
+
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="{% static "js/app.js" %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script type="text/javascript" src="your_directory/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

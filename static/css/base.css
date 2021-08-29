@@ -1,0 +1,12 @@
+.navbar-nav{
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.footer{
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    margin-left: 490px;
+    margin-right: 40px; 
+}

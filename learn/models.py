@@ -38,7 +38,7 @@ category_choices= (
 )
 
 class CreateUserBio(models.Model):
-    title              = models.CharField(max_length=32,default='username')
+    title              = models.CharField(max_length=32,default='My new link')
     addSocialMediaLink = URLField()
     link_icon          = models.CharField(max_length=100,default="",blank=True,choices=category_choices)
     image              = models.ImageField(upload_to='media/img/',blank=True,null=True,default="/static/img/avatarLogo.jpg")

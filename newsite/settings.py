@@ -26,7 +26,7 @@ SECRET_KEY = 'vz_)4_361th%lxu(n=2)gc3si0!z$)h#@x&)$6^vkbdo04q3&f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.43.16','192.168.42.106','127.0.0.1']
+ALLOWED_HOSTS = [ '*', '192.168.43.16','192.168.42.106','127.0.0.1']
 
 
 # Application definition
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_cleanup.apps.CleanupConfig',
     'hitcount',
-    'learn',
+    'learn.apps.learnConfig',
    
     
 ]

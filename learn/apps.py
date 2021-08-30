@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
-class InstabioConfig(AppConfig):
-    name = "Instabio"
-    verbose_name = "Instabio"
+class learnConfig(AppConfig):
+    name = "learn"
+    verbose_name = "learn"

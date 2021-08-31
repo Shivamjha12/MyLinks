@@ -1,7 +1,7 @@
 # Mybio
 ## _Online link sharing web application, With django_
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://shivamjha12102.pythonanywhere.com/)
 
 My bio link sharing web application is mobile friendly and responsive ,
 Made with html,css,javascript and bootstrap.

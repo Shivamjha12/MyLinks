@@ -137,13 +137,16 @@ def profile(request):
     return render(request, 'profile.html', {'person':person})
 
 def share(request, username, *args, **kwargs):
-    u           = User.objects.get(username=username)
-    x           = User.objects.values('id').filter(username=username).first()
-    p           = CreateUserBio.objects.filter(user=x['id'])
-    bio_data    = CreateUserBio.objects.filter(user=x['id'])
-    person      = Profile.objects.get(user=x['id'])
-    return render(request, 'explore.html', {'bio_data': bio_data,'u': u,'person': person,'p': p})
-
+    try:
+        u           = User.objects.get(username=username)
+        x           = User.objects.values('id').filter(username=username).first()
+        p           = CreateUserBio.objects.filter(user=x['id'])
+        bio_data    = CreateUserBio.objects.filter(user=x['id'])
+        person      = Profile.objects.get(user=x['id'])
+        return render(request, 'explore.html', {'bio_data': bio_data,'u': u,'person': person,'p': p,})
+    except User.DoesNotExist:
+        g = username
+        return render(request, 'usernotexist.html',{'g':g,})
 
 class PostDetailView(HitCountDetailView):
     model               = Profile

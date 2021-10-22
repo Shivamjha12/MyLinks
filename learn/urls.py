@@ -31,6 +31,7 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('intro/', views.intro, name='intro'),
     path('editProfile/', views.editProfile, name='editProfile'),
+    path('user_q', views.search_users, name='search_users')
     #<int:pk_id>/change/ 
     #<int:id>/update
 

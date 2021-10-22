@@ -1,4 +1,5 @@
 from django.forms.forms import Form
+from django.core.paginator import *
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from learn.models import *
 from django.db import IntegrityError
@@ -12,8 +13,10 @@ from django.contrib.auth import authenticate, login as auth_login, logout
 from hitcount.utils import get_hitcount_model
 from hitcount.views import HitCountMixin
 from hitcount.views import HitCountDetailView
+from django.db.models import Q
 import redis
 from django.conf import settings
+from django.contrib.postgres.search import SearchQuery, SearchVector
 # connect to redis
 r = redis.Redis(host=settings.REDIS_HOST,
  port=settings.REDIS_PORT,
@@ -135,7 +138,7 @@ def profile(request):
     x      = Images.objects.filter(user=request.user)
     person = Profile.objects.get(user=request.user)
     return render(request, 'profile.html', {'person':person})
-
+# This view function helps to share the user data with unique url
 def share(request, username, *args, **kwargs):
     try:
         u           = User.objects.get(username=username)
@@ -147,13 +150,15 @@ def share(request, username, *args, **kwargs):
     except User.DoesNotExist:
         g = username
         return render(request, 'usernotexist.html',{'g':g,})
+        
+
+
 
 class PostDetailView(HitCountDetailView):
     model               = Profile
     template_name       = 'explore.html'
     context_object_name = 'post'
     slug_field          = 'username'
-    # set to True to count the hit
     count_hit           = True
 
     
@@ -218,3 +223,35 @@ def intro(request):
 #     x = User.objects.values('id').filter(username=username).first()
 #     bio_data = CreateUserBio.objects.filter(user=x['id'])
 #     return render (request, 'previewBioPage.html', {'bio_data': bio_data})
+# from learn.pagination import *
+# @pagination_classes((SearchPagination,))
+def search_users(request):
+    z=User.objects.all()
+    a = request.GET.get('search')
+    page_q = request.GET.get('p',1)
+    
+        # z = User.objects.filter(
+        #     Q(first_name__icontains=a) | Q(last_name__icontains=a) |
+        #     Q(username__icontains=a)
+        # ).distinct()
+    vector = SearchVector('first_name','last_name',)
+    query = SearchQuery(a)
+    z = User.objects.annotate(search=vector).filter(search=query)
+    p = Paginator(z,5)
+    
+    #q = CreateUserBio.objects.filter(title__search=a)
+    
+    try:
+        page = p.page(page_q) # this will return data of that particular page
+    except PageNotAnInteger:
+        page = p.page(1) # if the passed page is not Integer then first page is returned, you can customize this
+    except EmptyPage:
+        page = p.page(p.num_pages)
+    # page = p.page(page_q)
+    # q = CreateUserBio.objects.filter(title__search=a)
+    return render(request, 'searchResult.html', {'page': page,'p': p})
+    # else:
+    #     q = None
+
+    # except TypeError:
+    #     return render(request, 'searchResult.html', {'Not found': q}) 

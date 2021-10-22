@@ -1,8 +1,4 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %} User {% endblock title %}
-{% block contactus_navbar %} {% endblock %}
-{% block body %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,8 +12,9 @@
 
     <title>User not exist</title>
   </head>
-  <body my-0>
-  <h1>{{g}} does not on mylinks</h1>
+  <body my-10>
+  <h1 class="text-center">{{g}} does not exist on mylinks</h1>
+  <p class="text-center" >please check username</p>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -26,4 +23,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
-{% endblock body %}

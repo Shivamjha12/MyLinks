@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://shivamjha12102.pythonanywhere.com/)
 
-My bio link sharing web application is mobile friendly and responsive ,
+Mylinks is link sharing web application and it is mobile friendly and responsive ,
 Made with html,css,javascript and bootstrap.
 
 - User registration and login

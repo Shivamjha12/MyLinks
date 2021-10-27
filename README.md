@@ -1,4 +1,4 @@
-# Mybio
+# MyLinks
 ## _Online link sharing web application, With django_
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://shivamjha12102.pythonanywhere.com/)
